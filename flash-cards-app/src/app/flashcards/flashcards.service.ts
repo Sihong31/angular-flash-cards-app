@@ -11,7 +11,7 @@ export class FlashcardsService {
         new Answer('question 3'),
         new Answer('question 4'),
       ],
-      '2'
+      0
     ),
     new Question(
       'This is test question number 2',
@@ -21,7 +21,7 @@ export class FlashcardsService {
         new Answer('question 3'),
         new Answer('question 4'),
       ],
-      '3'
+      1
     )
   ]
 

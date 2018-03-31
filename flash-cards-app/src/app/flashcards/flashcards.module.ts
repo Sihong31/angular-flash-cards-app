@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FlashcardsRoutingModule } from './flashcards.routing.module';
 
 import { FlashcardsComponent } from './flashcards.component';
@@ -12,7 +13,7 @@ import { FlashcardsAnswersComponent } from './flashcards-questions/flashcards-an
     FlashcardsQuestionsComponent,
     FlashcardsAnswersComponent
   ],
-  imports: [FlashcardsRoutingModule],
+  imports: [FlashcardsRoutingModule, CommonModule],
   exports: [],
   providers: []
 })

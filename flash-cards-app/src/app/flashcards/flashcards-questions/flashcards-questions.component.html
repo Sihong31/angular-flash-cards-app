@@ -1,5 +1,15 @@
-<p>
-  flashcards-questions works!
-</p>
-<hr />
-<app-flashcards-answers></app-flashcards-answers>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="flashcard">
+      <div class="question">
+        {{ firstQuestion.question }}
+      </div>
+      <app-flashcards-answers
+      *ngFor="let answer of firstQuestion.answers; let i = index"
+      [answer]="answer"
+      [index]="i"
+      (click)="onChooseAnswer(i)">
+    </app-flashcards-answers>
+    </div>
+  </div>
+</div>
