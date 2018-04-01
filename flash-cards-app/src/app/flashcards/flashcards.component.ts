@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FlashcardsService } from './flashcards.service';
 
 @Component({
   selector: 'app-flashcards',
@@ -7,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlashcardsComponent implements OnInit {
 
-  constructor() { }
+  decks = this.flashcardsService.decks;
+
+  constructor(private flashcardsService: FlashcardsService) { }
 
   ngOnInit() {
+    console.log(this.decks);
 
+  }
+
+  onDeckSelect() {
   }
 
 }

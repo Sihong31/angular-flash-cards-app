@@ -2,14 +2,25 @@
   <div class="col-xs-12">
     <div class="flashcard">
       <div class="question">
-        {{ firstQuestion.question }}
+        {{ currentQuestion.question }}
       </div>
       <app-flashcards-answers
-      *ngFor="let answer of firstQuestion.answers; let i = index"
-      [answer]="answer"
-      [index]="i"
-      (click)="onChooseAnswer(i)">
-    </app-flashcards-answers>
+        *ngFor="let answer of currentQuestion.answers; let i = index"
+        [answer]="answer"
+        [index]="i"
+        (click)="onChooseAnswer(i)">
+      </app-flashcards-answers>
+      <ng-container *ngIf="isAnswered">
+        <p *ngIf="isCorrect; else notCorrect">That is the correct answer!</p>
+        <ng-template #notCorrect>
+          <p>That is not the correct answer!</p>
+        </ng-template>
+      </ng-container>
+      <button type="button" class="btn btn-primary" *ngIf="isAnswered && gameIsActive" (click)="showNextQuestion()">Next Question</button>
+      <div class="end-game" *ngIf="!gameIsActive">
+        <p>That was the last question! Click the button to go back to the main menu</p>
+        <button type="button" class="btn btn-primary" (click)="onEndGame()">Main Menu</button>
+      </div>
     </div>
   </div>
 </div>

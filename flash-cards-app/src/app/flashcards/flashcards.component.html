@@ -1,3 +1,6 @@
 <h2>Flashcard Game</h2>
 <hr />
-<app-flashcards-questions></app-flashcards-questions>
+<a *ngFor="let deck of decks; let i = index" class="deck" [routerLink]="['deck',i,'question', '0']">
+  Deck {{ i }}
+</a>
+<router-outlet></router-outlet>
