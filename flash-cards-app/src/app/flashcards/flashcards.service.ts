@@ -316,11 +316,9 @@ export class FlashcardsService {
             ],
             3
           )
-       }
+        ]
+      }
     ]
-  //   questions: Question[] = [
-  //
-  // ]
 
   getQuestions(deckId) {
     return this.decks[deckId].questions.slice();
