@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params , Router } from '@angular/router';
 import { FlashcardsService } from '../flashcards.service';
+import { ScoreService } from '../../shared/score.service';
 
 import { Question } from '../question.model';
 
@@ -19,7 +20,10 @@ export class FlashcardsQuestionsComponent implements OnInit {
   isAnswered: boolean = false
   gameIsActive: boolean = true
 
-  constructor(private flashcardsService: FlashcardsService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private flashcardsService: FlashcardsService,
+              private scoreService: ScoreService,
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.parent.params.subscribe(
@@ -45,8 +49,10 @@ export class FlashcardsQuestionsComponent implements OnInit {
 
     if (this.correctAnswer == index) {
       this.isCorrect = true;
+      this.scoreService.addCorrectScore();
     } else {
       this.isCorrect = false;
+      this.scoreService.addWrongScore();
     }
 
   }
@@ -61,7 +67,8 @@ export class FlashcardsQuestionsComponent implements OnInit {
   }
 
   onEndGame() {
-    this.router.navigate(['/flashcards'])
+    this.scoreService.resetScore();
+    this.router.navigate(['']);
   }
 
 }

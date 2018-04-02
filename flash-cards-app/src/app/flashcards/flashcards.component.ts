@@ -8,16 +8,18 @@ import { FlashcardsService } from './flashcards.service';
 })
 export class FlashcardsComponent implements OnInit {
 
-  decks = this.flashcardsService.decks;
+  inProgress: boolean;
+  decks: {} = this.flashcardsService.decks;
 
-  constructor(private flashcardsService: FlashcardsService) { }
+  constructor(private flashcardsService: FlashcardsService) {
+  }
 
   ngOnInit() {
-    console.log(this.decks);
-
+    this.flashcardsService.inProgress = false;
   }
 
   onDeckSelect() {
+    this.inProgress = this.flashcardsService.toggleProgress();
   }
 
 }

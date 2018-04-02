@@ -2,6 +2,7 @@ import { Question } from './question.model';
 import { Answer } from './answer.model';
 
 export class FlashcardsService {
+    inProgress = false;
     decks = [
       {
         "id": "1",
@@ -70,6 +71,11 @@ export class FlashcardsService {
 
   getQuestion(deckId: number, questionId: number) {
     return this.decks[deckId].questions[questionId];
+  }
+
+  toggleProgress() {
+    this.inProgress = !this.inProgress;
+    return this.inProgress;
   }
 
 }
