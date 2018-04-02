@@ -2,12 +2,22 @@
 
 .navbar {
   background: $color-black;
-  .navbar-nav {
-    padding: 20px 0;
+  .brand {
+    color: $color-white;
+    display: inline-block;
+    font-size: 16px;
+    padding: 20px 0 20px 15px;
+  }
+  .score {
+    display: inline-block;
+    padding: 20px 15px 20px 0;
     li {
       color: $color-white;
       font-weight: 700;
       padding-right: 15px;
+      &:last-child {
+        padding-right: 0;
+      }
     }
       #correct span {
       color: #00FF00;

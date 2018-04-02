@@ -1,3 +1,5 @@
+@import '../shared/variables.scss';
+
 .flashcard {
   background: #efefef;
   margin: 0 auto;
@@ -11,5 +13,38 @@
   .answer {
     font-size:1 6px;
     margin-bottom: 10px;
+  }
+}
+
+.decks-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  .deck {
+    background: $color-black;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    margin: 0 15px 15px 0;
+    opacity: .8;
+    &:last-child {
+      margin-right: 0;
+    }
+    &:hover {
+      opacity: 1;
+    }
+    &:focus {
+      outline: 0;
+    }
+    span {
+      color: $color-white;
+      font-size: 24px;
+      font-weight: 700;
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 }

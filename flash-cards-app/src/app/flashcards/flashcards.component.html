@@ -1,8 +1,8 @@
 <h2>Flashcard Game</h2>
 <hr />
 <div class="decks-container" *ngIf="!inProgress">
-  <a *ngFor="let deck of decks; let i = index" class="deck" [routerLink]="['deck',i,'question', '0']" (click)="onDeckSelect()">
-    Deck {{ i }}
-  </a>
+  <div *ngFor="let deck of decks; let i = index" class="deck" [routerLink]="['deck',i,'question', '0']" (click)="onDeckSelect()">
+    <span>Deck: {{ deck.name }}</span>
+  </div>
 </div>
 <router-outlet></router-outlet>
