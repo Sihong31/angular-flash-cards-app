@@ -15,11 +15,16 @@ export class FlashcardsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.flashcardsService.inProgress = false;
+    this.inProgress = false;
+    this.flashcardsService.inProgress.subscribe(
+      (boolean: boolean) => {
+        this.inProgress = boolean;
+      }
+    )
   }
 
   onDeckSelect() {
-    this.inProgress = this.flashcardsService.toggleProgress();
+    this.inProgress = true;
   }
 
 }

@@ -14,6 +14,7 @@
         <p *ngIf="isCorrect; else notCorrect">That is the correct answer!</p>
         <ng-template #notCorrect>
           <p>That is not the correct answer!</p>
+          <p>The correct answer is: <strong>{{ currentQuestion.answers[correctAnswerIndex].answer }}</strong></p>
         </ng-template>
       </ng-container>
       <button type="button" class="btn btn-primary" *ngIf="isAnswered && gameIsActive" (click)="showNextQuestion()">Next Question</button>

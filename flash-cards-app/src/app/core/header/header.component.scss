@@ -1,0 +1,19 @@
+@import "../../shared/variables";
+
+.navbar {
+  background: $color-black;
+  .navbar-nav {
+    padding: 20px 0;
+    li {
+      color: $color-white;
+      font-weight: 700;
+      padding-right: 15px;
+    }
+      #correct span {
+      color: #00FF00;
+    }
+      #wrong span {
+      color: #ff0000;
+    }
+  }
+}

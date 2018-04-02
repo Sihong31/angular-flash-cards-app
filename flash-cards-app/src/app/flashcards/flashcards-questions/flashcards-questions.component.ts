@@ -15,7 +15,7 @@ export class FlashcardsQuestionsComponent implements OnInit {
   questionId: number
   questions: Question[]
   currentQuestion: Question
-  correctAnswer: any
+  correctAnswerIndex: number
   isCorrect: boolean = false
   isAnswered: boolean = false
   gameIsActive: boolean = true
@@ -36,25 +36,24 @@ export class FlashcardsQuestionsComponent implements OnInit {
       (params: Params) => {
         this.questionId = +params['id']
         this.currentQuestion = this.flashcardsService.getQuestion(this.deckId, this.questionId);
-        this.correctAnswer = this.currentQuestion.correctAnswer
+        this.correctAnswerIndex = this.currentQuestion.correctAnswer
       }
     )
   }
 
   onChooseAnswer(index) {
-    this.isAnswered = true;
     if(this.questionId == this.questions.length - 1) {
       this.gameIsActive = false;
     }
-
-    if (this.correctAnswer == index) {
+    if (this.correctAnswerIndex == index && !this.isAnswered) {
       this.isCorrect = true;
-      this.scoreService.addCorrectScore();
-    } else {
-      this.isCorrect = false;
-      this.scoreService.addWrongScore();
+      this.scoreService.addToCorrectScore();
     }
-
+    else if (this.correctAnswerIndex !==index && !this.isAnswered ){
+      this.isCorrect = false;
+      this.scoreService.addToWrongScore();
+    }
+    this.isAnswered = true;
   }
 
   showNextQuestion() {
@@ -68,7 +67,8 @@ export class FlashcardsQuestionsComponent implements OnInit {
 
   onEndGame() {
     this.scoreService.resetScore();
-    this.router.navigate(['']);
+    this.flashcardsService.setProgressFalse();
+    this.router.navigate(['/flashcards']);
   }
 
 }

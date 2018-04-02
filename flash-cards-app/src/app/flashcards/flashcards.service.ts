@@ -1,8 +1,9 @@
 import { Question } from './question.model';
 import { Answer } from './answer.model';
+import { Subject } from 'rxjs/Subject';
 
 export class FlashcardsService {
-    inProgress = false;
+    inProgress = new Subject<boolean>();
     decks = [
       {
         "id": "1",
@@ -73,9 +74,11 @@ export class FlashcardsService {
     return this.decks[deckId].questions[questionId];
   }
 
-  toggleProgress() {
-    this.inProgress = !this.inProgress;
-    return this.inProgress;
+  setProgressTrue() {
+    this.inProgress.next(true);
+  }
+  setProgressFalse() {
+    this.inProgress.next(false);
   }
 
 }

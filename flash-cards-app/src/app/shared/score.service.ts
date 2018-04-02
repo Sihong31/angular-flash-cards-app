@@ -8,11 +8,11 @@ export class ScoreService {
   correctScore: number = 0;
   wrongScore: number = 0;
 
-  addCorrectScore() {
+  addToCorrectScore() {
     this.correctSubject.next(this.correctScore += 1);
   }
 
-  addWrongScore() {
+  addToWrongScore() {
     this.wrongSubject.next(this.wrongScore += 1);
   }
 
