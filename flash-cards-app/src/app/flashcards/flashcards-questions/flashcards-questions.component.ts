@@ -8,7 +8,7 @@ import { Question } from '../question.model';
 @Component({
   selector: 'app-flashcards-questions',
   templateUrl: './flashcards-questions.component.html',
-  styleUrls: ['./flashcards-questions.component.css']
+  styleUrls: ['./flashcards-questions.component.scss']
 })
 export class FlashcardsQuestionsComponent implements OnInit {
   deckId: number

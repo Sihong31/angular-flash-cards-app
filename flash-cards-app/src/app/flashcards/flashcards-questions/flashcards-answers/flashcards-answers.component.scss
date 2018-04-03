@@ -1,0 +1,14 @@
+@import '../../../shared/variables';
+
+.answer {
+  font-weight: bold;
+  &.wrong {
+    color: $color-red;
+  }
+  &.correct {
+    color: $color-green;
+  }
+  label {
+    padding-left: 5px;
+  }
+}

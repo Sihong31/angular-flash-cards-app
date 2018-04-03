@@ -1,3 +1,4 @@
-<div class="answer">
-  {{ answer.answer }}
+<div [ngClass]="{answer: true, correct: isCorrectAnswer, wrong: isWrongAnswer}" (click)="onAnswer()">
+  <input type="radio" [disabled]="isAnswered" #ref/>
+  <label>{{ answer.answer }}</label>
 </div>

@@ -17,10 +17,10 @@
           <p>The correct answer is: <strong>{{ currentQuestion.answers[correctAnswerIndex].answer }}</strong></p>
         </ng-template>
       </ng-container>
-      <button type="button" class="btn btn-primary" *ngIf="isAnswered && gameIsActive" (click)="showNextQuestion()">Next Question</button>
+      <button type="button" class="btn btn-primary card-btn" *ngIf="isAnswered && gameIsActive" (click)="showNextQuestion()">Next Question</button>
       <div class="end-game" *ngIf="!gameIsActive">
         <p>That was the last question! Click the button to go back to the main menu</p>
-        <button type="button" class="btn btn-primary" (click)="onEndGame()">Main Menu</button>
+        <button type="button" class="btn btn-primary card-btn" (click)="onEndGame()">Main Menu</button>
       </div>
     </div>
   </div>

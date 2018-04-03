@@ -4,6 +4,7 @@ import { Subject } from 'rxjs/Subject';
 
 export class FlashcardsService {
     inProgress = new Subject<boolean>();
+    isAnswered = new Subject<boolean>();
     decks = [
       {
         "name": "General",
@@ -333,6 +334,14 @@ export class FlashcardsService {
   }
   setProgressFalse() {
     this.inProgress.next(false);
+  }
+
+  setAnsweredToTrue() {
+    this.isAnswered.next(true);
+  }
+  
+  setAnsweredToFalse() {
+    this.isAnswered.next(false);
   }
 
 }

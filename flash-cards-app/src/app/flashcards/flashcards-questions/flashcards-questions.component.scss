@@ -1,0 +1,33 @@
+@import '../../shared/variables';
+
+.flashcard {
+  background: $color-black;
+  color: $color-white;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 20px;
+  .question {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .answer {
+    font-size:1 6px;
+    margin-bottom: 10px;
+  }
+  p {
+    font-weight: 700;
+  }
+  .card-btn {
+    background: $color-white;
+    border: 0;
+    color: $color-black;
+    font-weight: 700;
+    &:hover {
+      background: #efefef;
+    }
+    &:focus {
+      outline: 0;
+    }
+  }
+}
