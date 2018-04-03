@@ -19,6 +19,7 @@ export class FlashcardsQuestionsComponent implements OnInit {
   isCorrect: boolean = false
   isAnswered: boolean = false
   gameIsActive: boolean = true
+  finalScore: number;
 
   constructor(private flashcardsService: FlashcardsService,
               private scoreService: ScoreService,
@@ -54,6 +55,10 @@ export class FlashcardsQuestionsComponent implements OnInit {
       this.scoreService.addToWrongScore();
     }
     this.isAnswered = true;
+
+    if(!this.gameIsActive) {
+      this.finalScore = this.scoreService.getFinalScore();
+    }
   }
 
   showNextQuestion() {

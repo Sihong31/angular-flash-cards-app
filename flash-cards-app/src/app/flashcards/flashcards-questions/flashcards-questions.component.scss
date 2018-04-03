@@ -15,6 +15,12 @@
     font-size:1 6px;
     margin-bottom: 10px;
   }
+  .incorrect-color {
+    color: $color-red;
+  }
+  .correct-color {
+    color: $color-green;
+  }
   p {
     font-weight: 700;
   }

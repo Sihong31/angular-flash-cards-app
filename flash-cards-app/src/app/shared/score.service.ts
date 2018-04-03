@@ -16,9 +16,12 @@ export class ScoreService {
     this.wrongSubject.next(this.wrongScore += 1);
   }
 
+  getFinalScore() {
+    return Math.floor(this.correctScore/(this.correctScore + this.wrongScore) * 100);
+  }
+
   resetScore() {
     this.correctSubject.next(this.correctScore = 0);
     this.wrongSubject.next(this.wrongScore = 0);
   }
-
 }

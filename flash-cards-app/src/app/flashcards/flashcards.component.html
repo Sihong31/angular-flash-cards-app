@@ -1,8 +1,21 @@
 <h2>Flashcard Game</h2>
 <hr />
-<div class="decks-container" *ngIf="!inProgress">
-  <div *ngFor="let deck of decks; let i = index" class="deck" [routerLink]="['deck',i,'question', '0']" (click)="onDeckSelect()">
-    <span>Deck: {{ deck.name }}</span>
+<div *ngIf="!inProgress">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="pull-right">
+        <button class="btn btn-primary btn-random" (click)="onChooseRandomDeck()">Choose Random Deck</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="decks-container">
+        <div *ngFor="let deck of decks; let i = index" class="deck" [routerLink]="['deck',i,'question', '0']" (click)="onDeckSelect()">
+          <span>Deck: {{ deck.name }}</span>
+        </div>
+      </div>      
+    </div>
   </div>
 </div>
 <router-outlet></router-outlet>

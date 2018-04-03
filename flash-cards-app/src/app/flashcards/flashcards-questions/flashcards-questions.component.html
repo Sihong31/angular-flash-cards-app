@@ -11,15 +11,16 @@
         (click)="onChooseAnswer(i)">
       </app-flashcards-answers>
       <ng-container *ngIf="isAnswered">
-        <p *ngIf="isCorrect; else notCorrect">That is the correct answer!</p>
+        <p class="correct-color" *ngIf="isCorrect; else notCorrect">That is the correct answer!</p>
         <ng-template #notCorrect>
-          <p>That is not the correct answer!</p>
-          <p>The correct answer is: <strong>{{ currentQuestion.answers[correctAnswerIndex].answer }}</strong></p>
+          <p class="incorrect-color">That is not the correct answer!</p>
+          <p>The correct answer is: <span class="correct-color"><strong>{{ currentQuestion.answers[correctAnswerIndex].answer }}</strong></span></p>
         </ng-template>
       </ng-container>
       <button type="button" class="btn btn-primary card-btn" *ngIf="isAnswered && gameIsActive" (click)="showNextQuestion()">Next Question</button>
       <div class="end-game" *ngIf="!gameIsActive">
-        <p>That was the last question! Click the button to go back to the main menu</p>
+        <p>That was the last question! You got <span class="correct-color">{{ finalScore }}%</span> correct!</p>
+        <p>Click the button to go back to the main menu</p>
         <button type="button" class="btn btn-primary card-btn" (click)="onEndGame()">Main Menu</button>
       </div>
     </div>

@@ -1,5 +1,25 @@
 @import '../shared/variables.scss';
 
+hr {
+  border-top: 1px solid $color-black;
+}
+
+.btn-random {
+  background: $color-black;
+  border: 0;
+  color: $color-white;
+  font-weight: 700;
+  margin-bottom: 20px;
+  opacity: .8;
+  padding: 12px;
+  &:hover {
+    opacity: 1;
+  }
+  &:focus {
+    background: $color-black;
+    outline: 0;
+  }
+}
 .decks-container {
   display: flex;
   flex-flow: row wrap;
