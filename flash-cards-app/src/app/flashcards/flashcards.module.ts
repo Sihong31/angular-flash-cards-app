@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlashcardsRoutingModule } from './flashcards.routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FlashcardsComponent } from './flashcards.component';
 import { FlashcardsQuestionsComponent } from './flashcards-questions/flashcards-questions.component';
@@ -15,7 +16,7 @@ import { FlashcardsDeckComponent } from './flashcards-deck/flashcards-deck.compo
     FlashcardsAnswersComponent,
     FlashcardsDeckComponent
   ],
-  imports: [FlashcardsRoutingModule, CommonModule],
+  imports: [FlashcardsRoutingModule, CommonModule, BrowserAnimationsModule],
   exports: [],
   providers: []
 })
